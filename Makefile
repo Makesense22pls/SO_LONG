@@ -6,7 +6,7 @@
 #    By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/05 17:01:19 by mafourni          #+#    #+#              #
-#    Updated: 2024/04/06 19:04:39 by mafourni         ###   ########.fr        #
+#    Updated: 2024/04/07 01:23:20 by mafourni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = so_long
 
 CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
-SRC = go.c
+SRC = pars/check_arg/first.c
 OBJ = $(SRC:.c=.o)
 
 #LIB
