@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 17:05:27 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/06 18:49:09 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/06 22:15:29 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 #include <stdlib.h>
 #include "so_long.h"
 
-#define WIDTH 512
-#define HEIGHT 512
+#define WIDTH 1000
+#define HEIGHT 1000
 
 static mlx_image_t* image;
 
@@ -28,7 +28,7 @@ static mlx_image_t* image;
 
 int32_t ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
 {
-    return (r << 24 | g << 16 | b << 8 | a);
+    return (r << 24 | g << 16 | b << 8  | a);
 }
 
 void ft_randomize(void* param)

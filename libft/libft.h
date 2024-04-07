@@ -6,12 +6,13 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:59:43 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/06 18:22:11 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/06 22:40:29 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -20,6 +21,7 @@
 # include <stddef.h>
 # include <fcntl.h>
 #include "ft_printf.h"
+#include "get_next_line.h"
 
 int		ft_atoi(char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);

@@ -20,7 +20,8 @@ SRC = ft_atoi.c ft_putnbr_fd.c ft_putchar_fd.c ft_isascii.c ft_isalpha.c \
 	ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_printf.c \
 	ft_print_char.c ft_print_char.c ft_print_format.c \
 	ft_print_hexmaj.c ft_print_hexmin.c ft_print_nbr.c \
-	ft_print_str.c ft_print_ptr.c ft_print_nbru.c
+	ft_print_str.c ft_print_ptr.c ft_print_nbru.c get_next_line.c \
+	get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)
 
