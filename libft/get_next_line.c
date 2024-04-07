@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 11:53:51 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/06 22:37:38 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/07 18:11:09 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ char	*ft_read_fd(int fd, char *keep_line)
 	{
 		buffer[check_read] = '\0';
 		if (!keep_line)
-			keep_line = ft_strdup(buffer);
+			keep_line = ft_strdupgnl(buffer);
 		else
 			keep_line = ft_strjoingnl(keep_line, buffer);
-		if (ft_strchr(keep_line, '\n') != 0)
+		if (ft_strchrgnl(keep_line, '\n') != 0)
 			break ;
 		check_read = read(fd, buffer, BUFFER_SIZE);
 	}
@@ -89,7 +89,7 @@ char	*get_next_line(int fd)
 	if (BUFFER_SIZE <= 0 || fd < 0 || read(fd, 0, 0) < 0)
 		return (free(keep_line), keep_line = NULL, NULL);
 	keep_line = ft_read_fd(fd, keep_line);
-	if (ft_strchr(keep_line, '\n') == 0)
+	if (ft_strchrgnl(keep_line, '\n') == 0)
 	{
 		if (ft_strlen(keep_line) == 0)
 		{
@@ -109,16 +109,3 @@ char	*get_next_line(int fd)
 		ft_keep_line_clean(keep_line);
 	return (line);
 }
-
-// int main()
-// {
-// 	int fd = open("file.txt", O_RDWR);
-// 	printf("%s",get_next_line(fd));
-// 	printf("%s",get_next_line(fd));
-// 	printf("%s",get_next_line(fd));
-// 	printf("%s",get_next_line(fd));
-// 	printf("%s",get_next_line(fd));
-// 	printf("%s",get_next_line(fd));
-// 	printf("%s",get_next_line(fd));
-// 	printf("%s",get_next_line(fd));
-// }

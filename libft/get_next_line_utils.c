@@ -6,13 +6,13 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 11:53:55 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/06 22:38:06 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/07 18:12:39 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchrgnl(const char *s, int c)
 {
 	unsigned char	c_;
 	unsigned char	*s_;
@@ -99,7 +99,7 @@ char	*ft_strjoingnl(char *s1, char *s2)
 	return (copie);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdupgnl(const char *s1)
 {
 	char	*result;
 	size_t	length;

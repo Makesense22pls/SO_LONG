@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:25:24 by mafourni          #+#    #+#             */
-/*   Updated: 2024/03/01 21:34:17 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/07 18:08:52 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (0);
 }
-int main()
-{
-	int c;
-	c = 'o';
-	printf("%s\n",ft_strchr("bonjour",c));
-	printf("%s\n",strchr("bonjour",c));
-	return(0);
-}
+// int main()
+// {
+// 	int c;
+// 	c = 'o';
+// 	printf("%s\n",ft_strchr("bonjour",c));
+// 	printf("%s\n",strchr("bonjour",c));
+// 	return(0);
+// }
