@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:14:18 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/14 16:45:33 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/14 17:40:38 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_go
 	size_t count;
 	size_t len;
 	size_t count_line;
+	size_t count_check;
 }t_go;
 
 typedef struct s_all_the_time
