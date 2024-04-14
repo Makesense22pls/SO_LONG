@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 11:53:59 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/07 18:10:25 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/14 16:33:35 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100
+#  define BUFFER_SIZE 1000
 # endif
 
 char		*get_next_line(int fd);
@@ -32,6 +32,6 @@ char		*ft_strdupgnl(const char *s1);
 char		*ft_strjoingnl(char *s1, char *s2);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
-size_t		ft_strlen(const char *s);
+size_t		ft_strlengnl(const char *s);
 
 #endif

@@ -6,20 +6,20 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:59:43 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/06 22:40:29 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/09 19:39:48 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <ctype.h>
-# include <stddef.h>
-# include <fcntl.h>
+	# include <unistd.h>
+	# include <stdio.h>
+	# include <stdlib.h>
+	# include <string.h>
+	# include <ctype.h>
+	# include <stddef.h>
+	# include <fcntl.h>
 #include "ft_printf.h"
 #include "get_next_line.h"
 

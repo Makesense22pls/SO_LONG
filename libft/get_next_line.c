@@ -6,13 +6,13 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 11:53:51 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/07 18:11:09 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/14 16:42:43 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlengnl(const char *s)
 {
 	int	i;
 
@@ -91,7 +91,7 @@ char	*get_next_line(int fd)
 	keep_line = ft_read_fd(fd, keep_line);
 	if (ft_strchrgnl(keep_line, '\n') == 0)
 	{
-		if (ft_strlen(keep_line) == 0)
+		if (ft_strlengnl(keep_line) == 0)
 		{
 			free(keep_line);
 			keep_line = NULL;

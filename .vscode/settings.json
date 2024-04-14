@@ -1,5 +1,7 @@
 {
 	"files.associations": {
-		"sstream": "c"
-	}
+		"sstream": "c",
+		"stdbool.h": "c"
+	},
+	"cmake.sourceDirectory": "/Users/mafourni/Documents/PROJETS/so_long/MLX42"
 }

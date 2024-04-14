@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 11:53:55 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/07 18:12:39 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/08 17:21:01 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 
 	len = 0;
-	len = ft_strlen(src);
+	len = ft_strlengnl(src);
 	if (!src)
 		return (0);
 	i = 0;
@@ -66,8 +66,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	if (!src || !dst || !src)
 		return (0);
-	src_len = ft_strlen(src);
-	dst_len = ft_strlen(dst);
+	src_len = ft_strlengnl(src);
+	dst_len = ft_strlengnl(dst);
 	if (dstsize == 0)
 		return (src_len);
 	i = 0;
@@ -90,11 +90,11 @@ char	*ft_strjoingnl(char *s1, char *s2)
 {
 	char	*copie;
 
-	copie = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	copie = malloc(sizeof(char) * (ft_strlengnl(s1) + ft_strlengnl(s2) + 1));
 	if (!copie)
 		return (0);
-	ft_strlcpy(copie, s1, (ft_strlen(s1) + ft_strlen(s2)) + 1);
-	ft_strlcat(copie, s2, (ft_strlen(s1) + ft_strlen(s2)) + 1);
+	ft_strlcpy(copie, s1, (ft_strlengnl(s1) + ft_strlengnl(s2)) + 1);
+	ft_strlcat(copie, s2, (ft_strlengnl(s1) + ft_strlengnl(s2)) + 1);
 	free(s1);
 	return (copie);
 }
@@ -107,7 +107,7 @@ char	*ft_strdupgnl(const char *s1)
 
 	if (s1 == NULL)
 		return (NULL);
-	length = ft_strlen(s1);
+	length = ft_strlengnl(s1);
 	result = malloc(sizeof(char) * (length + 1));
 	if (!result)
 		return (NULL);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first.c                                            :+:      :+:    :+:   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 00:09:46 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/07 19:11:39 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/08 17:49:39 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ bool	check_ber(char *str)
 		return (true);
 		}
 	else
-		ft_printf("ERROR! INVALID MAP NAME !");
+		ft_printf("ERROR! INVALID MAP NAME !\n");
 		return (false);
 }
 
