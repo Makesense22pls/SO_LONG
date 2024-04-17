@@ -1,7 +1,13 @@
 {
 	"files.associations": {
 		"sstream": "c",
-		"stdbool.h": "c"
+		"stdbool.h": "c",
+		"mlx42.h": "c",
+		"lodepng.h": "c",
+		"so_long.h": "c",
+		"__locale": "c",
+		"atomic": "c",
+		"cstdint": "c"
 	},
 	"cmake.sourceDirectory": "/Users/mafourni/Documents/PROJETS/so_long/MLX42"
 }

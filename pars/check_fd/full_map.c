@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 14:37:10 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/14 17:41:14 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/16 14:40:27 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	ft_count_line(char *arg)
 char **full_map(char *arg, t_all_the_time *evry)
 {
 	t_go draveil;
-	char **map;
 	int fd;
 	
 	evry->balade.count_line = 0;
@@ -69,21 +68,21 @@ char **full_map(char *arg, t_all_the_time *evry)
 	}
 	evry->balade.count_line = ft_count_line(arg);
 	fd = open(arg, O_RDONLY);
-	map = malloc(sizeof(char *) * (evry->balade.count_line + 1));
-	if (!map)
-		return (free(map), map = NULL, NULL);
+	evry->map = malloc(sizeof(char *) * (evry->balade.count_line + 1));
+	if (!evry->map)
+		return (free(evry->map),evry->map = NULL, NULL);
 	while (draveil.i < evry->balade.count_line)
 	{
-		map[draveil.i] = get_next_line(fd);
-		// if (map[i][0] == '\n')
+		evry->map[draveil.i] = get_next_line(fd);
+		// if evry->map[i][0] == '\n')
 		// 	return (printf("UNE LIGNE VIDE\n"),(NULL));
 		draveil.i++;
 	}
 	// printf("%zu", draveil.i);
-	map[evry->balade.count_line] = NULL;
-	// printf("MAP sans ligne vide\n");
-	printf("WESH %zu\n",evry->balade.count_line);
-	return (close(fd),map);
+	evry->map[evry->balade.count_line] = NULL;
+	// printf(evry->map sans ligne vide\n");
+	// printf("WESH %zu\n",evry->balade.count_line);
+	return (close(fd),evry->map);
 }
 
 bool	check_len_char(char **map, t_all_the_time *evry)
@@ -96,15 +95,15 @@ bool	check_len_char(char **map, t_all_the_time *evry)
 	while(lib.y < evry->balade.count_line)
 	{
 		evry->balade.y = ft_strlensolong(map[lib.y]);
-		printf("CK%zu\n", evry->balade.y);
+		// printf("CK%zu\n", evry->balade.y);
 		if (lib.y > 0)
 		{
-			printf("dans le if  STRLEN - 1: %zu\n", ft_strlensolong(map[lib.y - 1]));
+			// printf("dans le if  STRLEN - 1: %zu\n", ft_strlensolong(map[lib.y - 1]));
 			if (ft_strlensolong(map[lib.y - 1]) != evry->balade.y)
 				{
-					printf("evry->balade.y dans le if%zu\n", evry->balade.y);
-					printf("dans le last if : %zu\n", ft_strlensolong(map[lib.y - 1]));
-					printf("PAS SAME LEN");
+					// printf("evry->balade.y dans le if%zu\n", evry->balade.y);
+					// printf("dans le last if : %zu\n", ft_strlensolong(map[lib.y - 1]));
+					printf("ERROR, SIZE MAP");
 					return (false);
 				}
 		}
@@ -112,12 +111,12 @@ bool	check_len_char(char **map, t_all_the_time *evry)
 	}
 	if (check_map_all_C(map) == true)
 		{
-			printf("C GOOD");
+			printf("ALL CHAR\n");
 			return (true);
 		}
 	else
 		{
-			printf("ERROR, WRONG CHAR");		
+			printf("ERROR, WRONG CHAR\n");		
 			return (false);
 		}
 	// printf ("AKSKIP CA MARCHE SAME LEN");
@@ -141,4 +140,3 @@ bool	check_map_all_C(char **map)
 	}
 	return (true);
 }
-

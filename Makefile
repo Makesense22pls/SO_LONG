@@ -6,16 +6,16 @@
 #    By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/05 17:01:19 by mafourni          #+#    #+#              #
-#    Updated: 2024/04/14 17:15:48 by mafourni         ###   ########.fr        #
+#    Updated: 2024/04/16 20:03:24 by mafourni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -g
 RM = rm -f
-SRC = pars/check_arg/check_arg.c pars/check_fd/full_map.c exec/main.c sidequest.c
-		pars/check_fd/
+# SRC = EXEMPLE.c
+SRC = pars/check_arg/check_arg.c pars/check_fd/full_map.c exec/main.c sidequest.c pars/check_fd/check_place.c
 OBJ = $(SRC:.c=.o)
 
 #LIB

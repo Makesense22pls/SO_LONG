@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:14:18 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/14 17:40:38 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/16 13:41:03 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <fcntl.h>
-#include "MLX42.h"
+#include "MLX42/include/MLX42/MLX42.h"
+#define WIDTH 500
+#define HEIGHT 500
 
 typedef struct s_go
 {
 	size_t i;
+	size_t j;
 	size_t x;
 	size_t y;
 	size_t count;
@@ -28,9 +31,19 @@ typedef struct s_go
 	size_t count_check;
 }t_go;
 
+// typedef struct mlx
+// {
+// 	void*		window;
+// 	void*		context;
+// 	int32_t		width;
+// 	int32_t		height;
+// 	double		delta_time;
+// }	mlx_t;
+
 typedef struct s_all_the_time
 {
 	t_go	balade;
+	char	**map;
 }t_all_the_time;
 
 
@@ -44,4 +57,8 @@ bool	check_map_all_C(char **map);
 char	*ft_strchrmap(const char *s, int c);
 bool	check_len_char(char **map, t_all_the_time *evry);
 size_t	ft_strlensolong(const char *s);
-
+// CHECK MAP GOOD POSITION
+bool 	check_map_place(char **map, t_all_the_time *evry);
+bool	check_wall_line(char **map, t_all_the_time *evry);
+bool	check_wall_collumn(char **map, t_all_the_time *evry);
+bool	check_P_C_E(char **map, t_all_the_time *evry);
