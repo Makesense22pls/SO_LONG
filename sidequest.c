@@ -6,11 +6,11 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 15:34:20 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/15 17:04:48 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:09:54 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "header/so_long.h"
 
 void	ft_free_all(char **map)
 {

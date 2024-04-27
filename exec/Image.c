@@ -1,54 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   Image.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 15:06:04 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/22 14:33:06 by mafourni         ###   ########.fr       */
+/*   Created: 2024/04/22 13:51:53 by mafourni          #+#    #+#             */
+/*   Updated: 2024/04/22 14:25:22 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/so_long.h"
+#include "so_long.h"
 
-int main(int argc, char **argv)
+
+int	ft_affiche(void)
 {
-	t_all_the_time *evry;
-
-	int i;
-
-	i = 0;
-	if (!(check_nb_arg(argc)) || !(check_ber(argv[1])))
-		return (0);
-	// printf("AVANTPRINT");
-	evry = ft_peter();
-	if (!(full_map(argv[1], evry)))
-	{
-		if (evry->map)
-			ft_free_all(evry->map);
-		return (0);
-	}
-	// printf("AVANTPRINT");
-	if (!(check_len_char(evry->map,evry)) || !(check_map_place(evry->map, evry)))
-		{
-			if (evry->map)
-				ft_free_all(evry->map);
-			return (0);	
-		}
-	while(evry->map[i] != NULL)
-		{
-			free(evry->map[i]);
-			i++;
-		}
-	free(evry->map);
-	free(evry);
+	mlx_t*	mlx;
 	mlx = mlx_init(WIDTH,HEIGHT,"./so_long",true);
 	if(!mlx)
 		return(EXIT_FAILURE);
-	mlx_texture_t* texture = mlx_load_png("textures/FLOOR.png");
-	if(!texture)
-		return(EXIT_FAILURE);
+	ft_tema(mlx);
 	mlx_image_t* img = mlx_texture_to_image(mlx, texture);
 	if (!img)
         return(EXIT_FAILURE);
@@ -58,5 +29,23 @@ int main(int argc, char **argv)
 	mlx_delete_image(mlx, img);
 	mlx_delete_texture(texture);
 	mlx_terminate(mlx);
-	return (EXIT_SUCCESS);
+}
+
+int ft_tema(mlx)
+{
+	mlx_texture_t* FLOOR = mlx_load_png("textures/FLOOR.png");
+	if(!FLOOR)
+		return(EXIT_FAILURE);
+	mlx_texture_t* PLAYER = mlx_load_png("textures/PLAYER.png");
+	if(!PLAYER)
+		return(EXIT_FAILURE);
+	mlx_texture_t* WALL = mlx_load_png("textures/WALL.png");
+	if(!WALL)
+		return(EXIT_FAILURE);
+	mlx_texture_t* COLLECT = mlx_load_png("textures/COLLECT.png");
+	if(!COLLECT)
+		return(EXIT_FAILURE);
+	mlx_texture_t* EXIT = mlx_load_png("textures/EXIT.png");
+	if(!EXIT)
+		return(EXIT_FAILURE);
 }

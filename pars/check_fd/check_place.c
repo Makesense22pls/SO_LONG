@@ -6,11 +6,11 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 17:31:19 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/15 15:46:45 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:10:04 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "header/so_long.h"
 
 bool check_map_place(char **map, t_all_the_time *evry)
 {

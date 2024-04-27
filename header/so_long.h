@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:14:18 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/16 13:41:03 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/23 16:25:23 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <stdbool.h>
 #include <fcntl.h>
 #include "MLX42/include/MLX42/MLX42.h"
-#define WIDTH 500
-#define HEIGHT 500
+#define WIDTH 100
+#define HEIGHT 100
 
 typedef struct s_go
 {
@@ -43,6 +43,7 @@ typedef struct s_go
 typedef struct s_all_the_time
 {
 	t_go	balade;
+	mlx_t 	*mlx;
 	char	**map;
 }t_all_the_time;
 

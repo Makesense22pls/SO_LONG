@@ -6,11 +6,11 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 14:37:10 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/16 14:40:27 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/25 17:31:38 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "header/so_long.h"
 
 char	*ft_strchrmap(const char *s, int c)
 {

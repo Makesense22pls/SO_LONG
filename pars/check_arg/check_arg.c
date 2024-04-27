@@ -6,11 +6,11 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 00:09:46 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/08 17:49:39 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:09:08 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "header/so_long.h"
 #include "libft/ft_printf.h"
 
 bool	check_nb_arg(int argc)
