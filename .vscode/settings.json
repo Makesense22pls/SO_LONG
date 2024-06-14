@@ -7,7 +7,12 @@
 		"so_long.h": "c",
 		"__locale": "c",
 		"atomic": "c",
-		"cstdint": "c"
+		"cstdint": "c",
+		"bitset": "c",
+		"__bit_reference": "c",
+		"algorithm": "c",
+		"chrono": "c",
+		"unordered_map": "c"
 	},
 	"cmake.sourceDirectory": "/Users/mafourni/Documents/PROJETS/so_long/MLX42"
 }

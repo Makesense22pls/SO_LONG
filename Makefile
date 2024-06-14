@@ -6,16 +6,16 @@
 #    By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/05 17:01:19 by mafourni          #+#    #+#              #
-#    Updated: 2024/04/22 13:08:53 by mafourni         ###   ########.fr        #
+#    Updated: 2024/06/14 02:22:28 by mafourni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 RM = rm -f
 # SRC = EXEMPLE.c
-SRC = pars/check_arg/check_arg.c pars/check_fd/full_map.c exec/main.c sidequest.c pars/check_fd/check_place.c
+SRC = force.c DIRECTIONKEYACTION.c pars/check_arg/check_arg.c pars/check_fd/full_map.c exec/main.c sidequest.c pars/check_fd/check_place.c exec/image.c
 OBJ = $(SRC:.c=.o)
 
 #LIB
@@ -35,6 +35,8 @@ HEADERS_LIB = $(LIBFT_DIR)
 # 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4 to compil
 
 all : $(LIBFT_LIB) $(MLX42_LIB) $(NAME)
+
+bonus : all
 
 $(LIBFT_LIB):
 	@make -C $(LIBFT_DIR)

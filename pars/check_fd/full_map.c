@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 14:37:10 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/25 17:31:38 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/06/13 19:26:50 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ char	*ft_strchrmap(const char *s, int c)
 int	ft_count_line(char *arg)
 {
 	int i = 0;
-	// int check = 0;
 	int fd;
 	char *str;
 	fd = open(arg, O_RDONLY);
@@ -47,9 +46,9 @@ int	ft_count_line(char *arg)
 	{
 		if (str == NULL)
 			return(close(fd), i);
-		// printf("%s\n\n\n", str);
 		i++;
 	}
+	printf("value of i plslsls [%d]\n", i);
 	return (close(fd),i);
 }
 
@@ -57,31 +56,25 @@ char **full_map(char *arg, t_all_the_time *evry)
 {
 	t_go draveil;
 	int fd;
-	
-	evry->balade.count_line = 0;
+
+	evry->balade.nb_line = 0;
 	draveil.i = 0;
-	// printf("%zu && %zu",draveil.i, evry->balade.x);
 	if (ft_count_line(arg) == 0 || ft_count_line(arg) <= 2)
 	{
 		printf("ERROR, map INCCORECT");
 		return (false);
 	}
-	evry->balade.count_line = ft_count_line(arg);
+	evry->balade.nb_line = ft_count_line(arg);
 	fd = open(arg, O_RDONLY);
-	evry->map = malloc(sizeof(char *) * (evry->balade.count_line + 1));
+	evry->map = malloc(sizeof(char *) * (evry->balade.nb_line + 1));
 	if (!evry->map)
 		return (free(evry->map),evry->map = NULL, NULL);
-	while (draveil.i < evry->balade.count_line)
+	while (evry->balade.nb_line > draveil.i)
 	{
 		evry->map[draveil.i] = get_next_line(fd);
-		// if evry->map[i][0] == '\n')
-		// 	return (printf("UNE LIGNE VIDE\n"),(NULL));
 		draveil.i++;
 	}
-	// printf("%zu", draveil.i);
-	evry->map[evry->balade.count_line] = NULL;
-	// printf(evry->map sans ligne vide\n");
-	// printf("WESH %zu\n",evry->balade.count_line);
+	evry->map[draveil.i] = NULL;
 	return (close(fd),evry->map);
 }
 
@@ -89,54 +82,53 @@ bool	check_len_char(char **map, t_all_the_time *evry)
 {
 	t_go lib;
 
-	evry->balade.y = 0;
-	lib.y = 0;
-	// printf(" EVRY BALADE  dwdw : %zu", evry->balade.count_line);
-	while(lib.y < evry->balade.count_line)
+	evry->balade.nb_colum = 0;
+	lib.ycheh = 0;
+	while(lib.ycheh < evry->balade.nb_line)
 	{
-		evry->balade.y = ft_strlensolong(map[lib.y]);
-		// printf("CK%zu\n", evry->balade.y);
-		if (lib.y > 0)
+		evry->balade.nb_colum = ft_strlensolong(map[lib.ycheh]);
+		if (lib.ycheh > 0)
 		{
-			// printf("dans le if  STRLEN - 1: %zu\n", ft_strlensolong(map[lib.y - 1]));
-			if (ft_strlensolong(map[lib.y - 1]) != evry->balade.y)
-				{
-					// printf("evry->balade.y dans le if%zu\n", evry->balade.y);
-					// printf("dans le last if : %zu\n", ft_strlensolong(map[lib.y - 1]));
-					printf("ERROR, SIZE MAP");
-					return (false);
-				}
+			if (ft_strlensolong(map[lib.ycheh - 1]) != evry->balade.nb_colum)
+			{	
+				return (printf("ERROR, SIZE MAP"), false);
+			}
 		}
-	lib.y ++;
+	lib.ycheh ++;
 	}
-	if (check_map_all_C(map) == true)
-		{
-			printf("ALL CHAR\n");
-			return (true);
-		}
+	if (check_map_all_C(map,evry) == true)
+	{
+		return (printf("ALL CHAR\n"),true);
+	}
 	else
-		{
-			printf("ERROR, WRONG CHAR\n");		
-			return (false);
-		}
-	// printf ("AKSKIP CA MARCHE SAME LEN");
+	{	
+		return (printf("ERROR, WRONG CHAR\n"), false);
+	}
 }
 
-bool	check_map_all_C(char **map)
+bool	check_map_all_C(char **map, t_all_the_time *evry)
 {
 	t_go lib;
+	(void) map;
 
-	lib.y = 0;
-	while (map[lib.y]!= NULL)
+	lib.ycheh = 0;
+	while (evry->map[lib.ycheh] != NULL)
 	{
 		lib.x = 0;
-		while(map[lib.y][lib.x]!= '\0')
+		while(evry->map[lib.ycheh][lib.x] != '\0')
 		{
-			if (!(ft_strchrmap("10EPC\n", map[lib.y][lib.x])))
+			if (evry->map[lib.ycheh][lib.x] == 'E')
+			{
+				evry->pos_x_exit = lib.x;
+				evry->pos_y_exit = lib.ycheh;
+			}
+			if (evry->map[lib.ycheh][lib.x] == 'C')
+				evry->nb_collectible++ ;
+			if (!(ft_strchrmap("10EPC\n", evry->map[lib.ycheh][lib.x])))
 				return (false);
 			lib.x ++;
 		}
-		lib.y ++;
+		lib.ycheh ++;
 	}
 	return (true);
 }

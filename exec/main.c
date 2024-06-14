@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 15:06:04 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/22 14:33:06 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/06/14 02:30:10 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,35 @@
 
 int main(int argc, char **argv)
 {
-	t_all_the_time *evry;
+	t_all_the_time *all;
 
 	int i;
-
 	i = 0;
 	if (!(check_nb_arg(argc)) || !(check_ber(argv[1])))
 		return (0);
-	// printf("AVANTPRINT");
-	evry = ft_peter();
-	if (!(full_map(argv[1], evry)))
+	all = ft_innit();
+	if (!(full_map(argv[1], all)))
 	{
-		if (evry->map)
-			ft_free_all(evry->map);
+		if (all->map)
+			ft_free_all(all->map);
 		return (0);
 	}
-	// printf("AVANTPRINT");
-	if (!(check_len_char(evry->map,evry)) || !(check_map_place(evry->map, evry)))
-		{
-			if (evry->map)
-				ft_free_all(evry->map);
-			return (0);	
-		}
-	while(evry->map[i] != NULL)
-		{
-			free(evry->map[i]);
-			i++;
-		}
-	free(evry->map);
-	free(evry);
-	mlx = mlx_init(WIDTH,HEIGHT,"./so_long",true);
-	if(!mlx)
+	if (!(check_len_char(all->map,all)) || !(check_map_place(all->map, all)))
+	{
+		if (all->map)
+			ft_free_all(all->map);
+		return (0);	
+	}
+	i = 0;
+	ft_printf("YA NULL[--%s--]\n",all->map[4]);
+	all->mlx = mlx_init(all->balade.nb_colum * 64 ,all->balade.nb_line * 64 ,"./so_long",false);
+	if(!all->mlx)
 		return(EXIT_FAILURE);
-	mlx_texture_t* texture = mlx_load_png("textures/FLOOR.png");
-	if(!texture)
-		return(EXIT_FAILURE);
-	mlx_image_t* img = mlx_texture_to_image(mlx, texture);
-	if (!img)
-        return(EXIT_FAILURE);
-	if (mlx_image_to_window(mlx, img, 0, 0) < 0)
-        return(EXIT_FAILURE);
-	mlx_loop(mlx);
-	mlx_delete_image(mlx, img);
-	mlx_delete_texture(texture);
-	mlx_terminate(mlx);
+	init_text_img(all);
+	putimage(all);
+	mlx_key_hook(all->mlx, &my_keyhook, all);
+	mlx_loop(all->mlx);
+	mlx_terminate(all->mlx);
+	system("killall afplay");
 	return (EXIT_SUCCESS);
 }
