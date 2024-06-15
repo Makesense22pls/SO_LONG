@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:14:18 by mafourni          #+#    #+#             */
-/*   Updated: 2024/06/14 03:40:17 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:41:47 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 #include <fcntl.h>
 #include "MLX42/include/MLX42/MLX42.h"
 #define TILE_SIZE 64
+
+typedef struct s_stp
+{
+	size_t position_x_player_ff;
+	size_t positon_y_player_ff;
+}t_stp;
 
 typedef struct s_go
 {
@@ -62,9 +68,11 @@ typedef struct s_all_the_time
 	int check;
 	size_t	nb_collectible;
 	size_t	count_collectible;
+	size_t	count_collectible_ff;
 	int		 checksoundniska;
 	
 	char *audioFile;
+	char **map_copie;
 	pid_t pidserv;
 	int		result;
 	mlx_texture_t* texture_wall;
@@ -84,6 +92,7 @@ typedef struct s_all_the_time
 
 
 t_all_the_time	*ft_innit(void);
+t_stp	*ft_innit2(void);
 void 	ft_escape(mlx_key_data_t keydata);
 void	dothiswhenkeyleft(t_all_the_time *all);
 void	dothiswhenkeyright(t_all_the_time *all);
@@ -109,3 +118,6 @@ bool 	check_map_place(char **map, t_all_the_time *evry);
 bool	check_wall_line(char **map, t_all_the_time *evry);
 bool	check_wall_collumn(char **map, t_all_the_time *evry);
 bool	check_P_C_E(char **map, t_all_the_time *evry);
+int		flood_fill(t_all_the_time *all, t_stp *pls);
+void	fill(t_all_the_time *all, char **map_copie, size_t position_x_player, size_t position_y_player);
+void 	need_pos(t_all_the_time *all, t_stp *pls);

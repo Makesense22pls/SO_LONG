@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 15:34:20 by mafourni          #+#    #+#             */
-/*   Updated: 2024/06/14 04:21:42 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:09:19 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,22 @@ t_all_the_time	*ft_innit(void)
 	innit->count_collectible = 0;
 	innit->balade.security = 0;
 	innit->nb_collectible = 0;
+	innit->count_collectible_ff = 0;
 	innit->audioFile = NULL;
 	innit->map = NULL;
+	innit->map_copie = NULL;
 	innit->mlx = NULL;
+	return(innit);
+}
+t_stp	*ft_innit2(void)
+{
+	t_stp *innit;
+
+	innit = malloc(sizeof(t_stp));
+	if(!innit)
+		return(0);
+	innit->position_x_player_ff = 0;
+	innit->positon_y_player_ff = 0;
 	return(innit);
 }
 size_t	ft_strlensolong(const char *s)

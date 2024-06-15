@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 14:37:10 by mafourni          #+#    #+#             */
-/*   Updated: 2024/06/13 19:26:50 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:26:41 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,4 +131,27 @@ bool	check_map_all_C(char **map, t_all_the_time *evry)
 		lib.ycheh ++;
 	}
 	return (true);
+}
+void need_pos(t_all_the_time *all, t_stp *pls)
+{
+	int x;
+	int y;
+
+	y = 0;
+	while(all->map[y] != NULL)
+	{
+		x = 0;
+		while(all->map[y][x] != '\0')
+		{
+			if (all->map[y][x] == 'P')	
+			{
+				pls->position_x_player_ff = x;
+				pls->positon_y_player_ff = y;
+			}
+			x++;
+		}
+		y++;
+	}
+	ft_printf("x_player %d\n",pls->position_x_player_ff);
+	ft_printf("y_player %d\n",pls ->positon_y_player_ff);
 }

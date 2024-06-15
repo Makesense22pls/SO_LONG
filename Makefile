@@ -6,7 +6,7 @@
 #    By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/05 17:01:19 by mafourni          #+#    #+#              #
-#    Updated: 2024/06/14 02:22:28 by mafourni         ###   ########.fr        #
+#    Updated: 2024/06/15 15:29:26 by mafourni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = so_long
 CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 RM = rm -f
 # SRC = EXEMPLE.c
-SRC = force.c DIRECTIONKEYACTION.c pars/check_arg/check_arg.c pars/check_fd/full_map.c exec/main.c sidequest.c pars/check_fd/check_place.c exec/image.c
+SRC = force.c DIRECTIONKEYACTION.c pars/check_arg/check_arg.c pars/check_fd/full_map.c exec/main.c sidequest.c pars/check_fd/check_place.c exec/Image.c
 OBJ = $(SRC:.c=.o)
 
 #LIB

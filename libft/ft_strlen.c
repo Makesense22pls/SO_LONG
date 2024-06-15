@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:17:38 by mafourni          #+#    #+#             */
-/*   Updated: 2024/04/10 18:44:23 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:56:25 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ size_t	ft_strlen(const	char *s)
 	i = 0;
 	if (!s)
 		return (0);
-	while (s[i] && s[i] != '\n')
-		{
-			i ++;
-		}
+	while (s[i])
+	{
+		i ++;
+	}
 	return (i);
 }
