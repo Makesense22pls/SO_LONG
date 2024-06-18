@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 14:10:15 by mafourni          #+#    #+#             */
-/*   Updated: 2024/02/28 21:09:18 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/06/18 14:12:42 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,3 @@ size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 		return (dstsize + src_len);
 	return (src_len + dst_len);
 }
-

@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:40:58 by mafourni          #+#    #+#             */
-/*   Updated: 2024/03/21 13:36:15 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/06/18 14:13:10 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	return (copie);
 }
-
-

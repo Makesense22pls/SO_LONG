@@ -17,7 +17,7 @@ SRC = ft_atoi.c ft_putnbr_fd.c ft_putchar_fd.c ft_isascii.c ft_isalpha.c \
 	ft_putendl_fd.c ft_toupper.c ft_tolower.c ft_memcpy.c ft_memset.c ft_memmove.c \
 	ft_isalnum.c ft_memcmp.c ft_memchr.c ft_strchr.c ft_substr.c ft_bzero.c \
 	ft_strrchr.c ft_calloc.c ft_strlcpy.c ft_strnstr.c ft_strlcat.c ft_strjoin.c \
-	ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_printf.c \
+	ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_printf.c \
 	ft_print_char.c ft_print_char.c ft_print_format.c \
 	ft_print_hexmaj.c ft_print_hexmin.c ft_print_nbr.c \
 	ft_print_str.c ft_print_ptr.c ft_print_nbru.c get_next_line.c \

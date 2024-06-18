@@ -6,55 +6,49 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 15:06:04 by mafourni          #+#    #+#             */
-/*   Updated: 2024/06/15 18:30:24 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/06/18 15:04:54 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/so_long.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_all_the_time *all;
-	t_stp	*pls;
-	int i;
-	i = 0;
-	if (!(check_nb_arg(argc)) || !(check_ber(argv[1])))
-		return (0);
+	t_all_the_time	*all;
+	t_stp			*pls;
+	t_pixel			*force;
+
+	if (check_nb_arg_ber(argc, argv[1]) == 1)
+		return (EXIT_FAILURE);
 	all = ft_innit();
 	pls = ft_innit2();
-	if (!(full_map(argv[1], all)))
+	force = ft_innit3();
+	if ((checking(all, argv[1], pls) == 1))
 	{
-		if (all->map)
-			ft_free_all(all->map);
-		return (0);
+		free_the_world(all, force, pls);
+		return (EXIT_FAILURE);
 	}
-	if (!(check_len_char(all->map,all)) || !(check_map_place(all->map, all)))
-	{
-		if (all->map)
-			ft_free_all(all->map);
-		return (0);	
-	}
-	need_pos(all,pls);
-	if (flood_fill(all,pls) == 1)
-	{
-		ft_printf("ERROR MAP INCORRECT\n");	
-		return(EXIT_FAILURE);
-	}
-	if (all->balade.nb_colum > 41 || all->balade.nb_line > 21)
-	{
-		printf("ERROR MAP TOO BIG");	
-		return(EXIT_FAILURE);
-	}
-	i = 0;
-	// ft_printf("YA NULL[--%s--]\n",all->map[4]);
-	all->mlx = mlx_init(all->balade.nb_colum * 64 ,all->balade.nb_line * 64 ,"./so_long",false);
-	if(!all->mlx)
-		return(EXIT_FAILURE);
-	init_text_img(all);
-	putimage(all);
-	mlx_key_hook(all->mlx, &my_keyhook, all);
-	mlx_loop(all->mlx);
-	mlx_terminate(all->mlx);
-	system("killall afplay");
+	all->mlx = mlx_init(all->balade.nb_colum * 64, all->balade.nb_line * 64,
+			"./so_long", false);
+	if (!all->mlx)
+		return (EXIT_FAILURE);
+	ft_exec(all, force, pls);
+	ft_delete_all(all);
 	return (EXIT_SUCCESS);
+}
+
+void ft_delete_all(t_all_the_time *all)
+{
+	mlx_delete_image(all->mlx, all->img_perso);
+	mlx_delete_texture(all->texture_perso);
+	mlx_delete_image(all->mlx, all->img_collec);
+	mlx_delete_texture(all->texture_collec);
+	mlx_delete_image(all->mlx, all->img_exit);
+	mlx_delete_texture(all->texture_exit);
+	mlx_delete_image(all->mlx, all->img_floor);
+	mlx_delete_texture(all->texture_floor);
+	mlx_delete_image(all->mlx, all->img_final_exit);
+	mlx_delete_texture(all->texture_final_exit);
+	mlx_delete_image(all->mlx, all->img_wall);
+	mlx_delete_texture(all->texture_wall);
 }

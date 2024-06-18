@@ -6,7 +6,7 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 16:29:01 by mafourni          #+#    #+#             */
-/*   Updated: 2024/03/04 11:13:59 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/06/18 14:12:06 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,4 @@ char	*ft_itoa(int n)
 		nb = nb / 10;
 	}
 	return (copie);
-}
-int main()
-{
-	printf("%s\n", ft_itoa(1));
-	return(0);
 }

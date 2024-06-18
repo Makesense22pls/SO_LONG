@@ -6,37 +6,32 @@
 /*   By: mafourni <mafourni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 00:09:46 by mafourni          #+#    #+#             */
-/*   Updated: 2024/06/08 16:20:16 by mafourni         ###   ########.fr       */
+/*   Updated: 2024/06/18 12:58:33 by mafourni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/so_long.h"
 #include "libft/ft_printf.h"
 
-bool	check_nb_arg(int argc)
+int	check_nb_arg_ber(int argc, char *str)
 {
+	int	i;
+
+	i = 0;
 	if (argc != 2)
 	{
 		ft_printf("WRONG NUMBERS OF ARGS");
-		return (false);
+		return (EXIT_FAILURE);
 	}
-	return (true);
-}	
-
-bool	check_ber(char *str)
-{
-	int i;
-
-	i = 0;
 	while (str[i])
 		i++;
 	i--;
-	if (str[i] == 'r' && str[i-1] == 'e' && str[i-2] == 'b' && str[i-3] == '.')
-	{
-		ft_printf("SUCCESS ! for godd name of last arg\n");
-		return (true);
-	}
+	if ((str[i] == 'r' && str[i - 1] == 'e'
+			&& str[i - 2] == 'b' && str[i - 3] == '.'))
+		return (EXIT_SUCCESS);
 	else
+	{
 		ft_printf("ERROR! INVALID MAP NAME !\n");
-		return (false);
+		return (EXIT_FAILURE);
+	}
 }
